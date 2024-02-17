@@ -1,0 +1,175 @@
+{
+    "title": "CELESTIA BRIDGE NODE",
+    "description": "This dashboard is designed to monitor the performance of the Celestia bridge node, providing insights into its uptime, throughput, and connectivity.",
+    "widgets": [{ "id": 7821067948835380, "definition": { "title": "MONITORS", "background_color": "vivid_blue", "show_title": true, "type": "group", "layout_type": "ordered", "widgets": [{ "id": 926547535607830, "definition": { "title": "Overview", "type": "manage_status", "display_format": "countsAndList", "color_preference": "background", "hide_zero_counts": false, "query": "service:bridge", "sort": "status,asc", "count": 50, "start": 0, "summary_type": "monitors", "show_priority": true, "show_last_triggered": false }, "layout": { "x": 0, "y": 0, "width": 12, "height": 4 } }] }, "layout": { "x": 0, "y": 0, "width": 12, "height": 5 } }, {
+        "id": 3677861381375344,
+        "definition": {
+            "title": "NODE OVERVIEW",
+            "background_color": "vivid_blue",
+            "show_title": true,
+            "type": "group",
+            "layout_type": "ordered",
+            "widgets": [{ "id": 6172606387722476, "definition": { "title": "Uptime", "title_size": "16", "title_align": "left", "time": {}, "type": "query_value", "requests": [{ "response_format": "scalar", "queries": [{ "data_source": "metrics", "name": "query1", "query": "max:node_runtime_counter_in_seconds{service:bridge, host:otelcol-docker}.as_count()", "aggregator": "sum" }], "conditional_formats": [{ "comparator": ">", "value": 0, "palette": "white_on_green" }], "formulas": [{ "number_format": { "unit": { "type": "canonical_unit", "unit_name": "day" } }, "formula": "query1 / 86400" }] }], "autoscale": false, "precision": 0, "timeseries_background": { "type": "area", "yaxis": { "include_zero": false } } }, "layout": { "x": 0, "y": 0, "width": 4, "height": 2 } }, {
+                "id": 4463395191762738,
+                "definition": {
+                    "title": "Node Version",
+                    "title_size": "16",
+                    "title_align": "left",
+                    "time": { "live_span": "5m" },
+                    "type": "query_table",
+                    "requests": [{
+                        "queries": [{ "name": "query1", "data_source": "metrics", "query": "max:build_info{service:bridge, host:otelcol-docker} by {service,semantic_version,last_commit}", "aggregator": "last" }],
+                        "response_format": "scalar",
+                        "text_formats": [
+                            [{ "match": { "type": "is_not", "value": "\"\"" }, "palette": "custom_bg", "custom_bg_color": "#375beb" }]
+                        ],
+                        "formulas": [{ "conditional_formats": [{ "comparator": ">", "value": 0, "palette": "white_on_green" }], "cell_display_mode": "number", "alias": "IS ONLINE", "formula": "query1", "limit": { "count": 5, "order": "desc" } }]
+                    }],
+                    "has_search_bar": "never"
+                },
+                "layout": { "x": 4, "y": 0, "width": 8, "height": 2 }
+            }]
+        },
+        "layout": { "x": 0, "y": 5, "width": 12, "height": 3 }
+    }, { "id": 6620789770708090, "definition": { "title": "HEADERS", "background_color": "vivid_blue", "show_title": true, "type": "group", "layout_type": "ordered", "widgets": [{ "id": 1145519791767890, "definition": { "title": "Total Synced Headers", "title_size": "16", "title_align": "left", "time": { "live_span": "1m" }, "type": "query_value", "requests": [{ "response_format": "scalar", "queries": [{ "name": "query1", "data_source": "metrics", "query": "max:total_synced_headers{service:bridge, host:otelcol-docker}", "aggregator": "last" }], "conditional_formats": [{ "comparator": ">", "value": 0, "palette": "white_on_green" }], "formulas": [{ "formula": "query1" }] }], "autoscale": true, "precision": 2, "timeseries_background": { "yaxis": { "include_zero": false }, "type": "area" } }, "layout": { "x": 0, "y": 0, "width": 4, "height": 2 } }, { "id": 1718828786894718, "definition": { "title": "Number of Headers Served", "title_size": "16", "title_align": "left", "time": {}, "type": "query_value", "requests": [{ "response_format": "scalar", "queries": [{ "name": "query1", "data_source": "metrics", "query": "max:hdr_p2p_exch_srvr_headers_served_counter{service:bridge, host:otelcol-docker, failed_request:false}.as_count()", "aggregator": "sum" }], "conditional_formats": [{ "comparator": ">", "value": 0, "palette": "white_on_green" }], "formulas": [{ "number_format": { "unit": { "type": "canonical_unit" } }, "formula": "query1" }] }], "autoscale": true, "precision": 2, "timeseries_background": { "yaxis": { "include_zero": false }, "type": "area" } }, "layout": { "x": 4, "y": 0, "width": 4, "height": 2 } }, { "id": 4869797763936456, "definition": { "title": "Header Message Count", "title_size": "16", "title_align": "left", "time": {}, "type": "query_value", "requests": [{ "response_format": "scalar", "queries": [{ "name": "query1", "data_source": "metrics", "query": "max:hdr_p2p_sub_msg_num_counter{service:bridge, host:otelcol-docker, status:accept}.as_count()", "aggregator": "sum" }], "conditional_formats": [{ "comparator": ">", "value": 0, "palette": "white_on_green" }], "formulas": [{ "number_format": { "unit": { "type": "canonical_unit" } }, "formula": "query1" }] }], "autoscale": true, "precision": 2, "timeseries_background": { "yaxis": { "include_zero": false }, "type": "area" } }, "layout": { "x": 8, "y": 0, "width": 4, "height": 2 } }, { "id": 5571198770950676, "definition": { "title": "Total Synced Headers Timeline", "title_size": "16", "title_align": "left", "show_legend": true, "legend_layout": "horizontal", "legend_columns": ["avg", "min", "max", "value", "sum"], "time": {}, "type": "timeseries", "requests": [{ "formulas": [{ "number_format": { "unit": { "type": "custom_unit_label", "label": "headers" } }, "alias": "synced headers", "formula": "query1" }], "queries": [{ "name": "query1", "data_source": "metrics", "query": "max:total_synced_headers{service:bridge, host:otelcol-docker}" }], "response_format": "timeseries", "style": { "palette": "dog_classic", "line_type": "solid", "line_width": "normal" }, "display_type": "line" }] }, "layout": { "x": 0, "y": 2, "width": 4, "height": 3 } }, { "id": 226270005115668, "definition": { "title": "Head Serve Time p95", "title_size": "16", "title_align": "left", "show_legend": true, "legend_layout": "horizontal", "legend_columns": ["avg", "min", "max", "value", "sum"], "time": {}, "type": "timeseries", "requests": [{ "formulas": [{ "alias": "serve time", "number_format": { "unit": { "type": "canonical_unit", "unit_name": "second" } }, "style": { "palette": "green", "palette_index": 3 }, "formula": "query1" }], "queries": [{ "name": "query1", "data_source": "metrics", "query": "p95:hdr_p2p_exch_srvr_head_serve_time_hist{service:bridge, failed_request:false, host:otelcol-docker}" }], "response_format": "timeseries", "style": { "palette": "dog_classic", "line_type": "solid", "line_width": "normal" }, "display_type": "line" }] }, "layout": { "x": 4, "y": 2, "width": 4, "height": 3 } }, { "id": 8084937510121228, "definition": { "title": "Range Serve Time p95", "title_size": "16", "title_align": "left", "show_legend": true, "legend_layout": "horizontal", "legend_columns": ["avg", "min", "max", "value", "sum"], "time": {}, "type": "timeseries", "requests": [{ "formulas": [{ "number_format": { "unit": { "type": "canonical_unit", "unit_name": "second" } }, "alias": "serve time", "style": { "palette": "warm", "palette_index": 3 }, "formula": "query1" }], "queries": [{ "name": "query1", "data_source": "metrics", "query": "p95:hdr_p2p_exch_srvr_range_serve_time_hist{service:bridge, host:otelcol-docker}" }], "response_format": "timeseries", "style": { "palette": "dog_classic", "line_type": "solid", "line_width": "normal" }, "display_type": "line" }] }, "layout": { "x": 8, "y": 2, "width": 4, "height": 3 } }, { "id": 3365423345205238, "definition": { "title": "Header Message Size Avg", "title_size": "16", "title_align": "left", "time": { "live_span": "1m" }, "type": "query_value", "requests": [{ "response_format": "scalar", "queries": [{ "name": "query1", "data_source": "metrics", "query": "avg:hdr_p2p_sub_msg_size_hist{service:bridge, host:otelcol-docker}", "aggregator": "avg" }], "conditional_formats": [{ "comparator": ">", "value": 0, "palette": "white_on_green" }], "formulas": [{ "number_format": { "unit": { "type": "canonical_unit" } }, "formula": "query1" }] }], "autoscale": true, "precision": 2, "timeseries_background": { "yaxis": { "include_zero": false }, "type": "area" } }, "layout": { "x": 0, "y": 5, "width": 4, "height": 2 } }, { "id": 2265401938334556, "definition": { "title": "Active Header Message Subscriptions", "title_size": "16", "title_align": "left", "time": { "live_span": "5m" }, "type": "query_value", "requests": [{ "response_format": "scalar", "queries": [{ "name": "query1", "data_source": "metrics", "query": "max:hdr_p2p_sub_num_gauge{service:bridge, host:otelcol-docker}", "aggregator": "last" }], "conditional_formats": [{ "comparator": ">=", "value": 0, "palette": "white_on_green" }], "formulas": [{ "number_format": { "unit": { "type": "canonical_unit" } }, "formula": "query1" }] }], "autoscale": true, "precision": 2, "timeseries_background": { "yaxis": { "include_zero": false }, "type": "area" } }, "layout": { "x": 4, "y": 5, "width": 4, "height": 2 } }, { "id": 2875489662181536, "definition": { "title": "Current Header Store Head Height", "title_size": "16", "title_align": "left", "time": { "live_span": "5m" }, "type": "query_value", "requests": [{ "response_format": "scalar", "queries": [{ "name": "query1", "data_source": "metrics", "query": "max:hdr_store_head_height_gauge{service:bridge, host:otelcol-docker}", "aggregator": "last" }], "conditional_formats": [{ "comparator": ">=", "value": 0, "palette": "white_on_green" }], "formulas": [{ "number_format": { "unit": { "type": "canonical_unit" } }, "formula": "query1" }] }], "autoscale": true, "precision": 2, "timeseries_background": { "yaxis": { "include_zero": false }, "type": "area" } }, "layout": { "x": 8, "y": 5, "width": 4, "height": 2 } }, { "id": 4052922582561190, "definition": { "title": "Header Message Propagation Time p95", "title_size": "16", "title_align": "left", "show_legend": true, "legend_layout": "horizontal", "legend_columns": ["avg", "min", "max", "value", "sum"], "time": {}, "type": "timeseries", "requests": [{ "formulas": [{ "alias": "propagation time", "number_format": { "unit": { "type": "canonical_unit", "unit_name": "second" } }, "formula": "query1" }], "queries": [{ "name": "query1", "data_source": "metrics", "query": "p95:hdr_p2p_sub_msg_time_hist{service:bridge,failed_request:false}" }], "response_format": "timeseries", "style": { "palette": "dog_classic", "line_type": "solid", "line_width": "normal" }, "display_type": "line" }] }, "layout": { "x": 0, "y": 7, "width": 4, "height": 3 } }, { "id": 7544618225877856, "definition": { "title": "Header Store Flush Time p95", "title_size": "16", "title_align": "left", "show_legend": true, "legend_layout": "horizontal", "legend_columns": ["avg", "min", "max", "value", "sum"], "time": {}, "type": "timeseries", "requests": [{ "formulas": [{ "alias": "propagation time", "number_format": { "unit": { "type": "canonical_unit", "unit_name": "second" } }, "style": { "palette": "green", "palette_index": 3 }, "formula": "query1" }], "queries": [{ "name": "query1", "data_source": "metrics", "query": "p95:hdr_store_flush_time_hist{service:bridge, failed:false, host:otelcol-docker}" }], "response_format": "timeseries", "style": { "palette": "cool", "line_type": "solid", "line_width": "normal" }, "display_type": "line" }] }, "layout": { "x": 4, "y": 7, "width": 4, "height": 3 } }, { "id": 8929621530310838, "definition": { "title": "Header Store Single Header Read Time p95", "title_size": "16", "title_align": "left", "show_legend": true, "legend_layout": "horizontal", "legend_columns": ["avg", "min", "max", "value", "sum"], "time": {}, "type": "timeseries", "requests": [{ "formulas": [{ "alias": "propagation time", "number_format": { "unit": { "type": "canonical_unit", "unit_name": "second" } }, "style": { "palette": "warm", "palette_index": 3 }, "formula": "query1" }], "queries": [{ "name": "query1", "data_source": "metrics", "query": "p95:hdr_store_read_time_hist{service:bridge,failed:false, host:otelcol-docker}" }], "response_format": "timeseries", "style": { "palette": "dog_classic", "line_type": "solid", "line_width": "normal" }, "display_type": "line" }] }, "layout": { "x": 8, "y": 7, "width": 4, "height": 3 } }] }, "layout": { "x": 0, "y": 8, "width": 12, "height": 11 } }, {
+        "id": 6185613879278870,
+        "definition": {
+            "title": "PEERS",
+            "background_color": "vivid_blue",
+            "show_title": true,
+            "type": "group",
+            "layout_type": "ordered",
+            "widgets": [{ "id": 1240295189832028, "definition": { "title": "Amount of Peers", "title_size": "16", "title_align": "left", "time": { "live_span": "1m" }, "type": "query_value", "requests": [{ "response_format": "scalar", "queries": [{ "data_source": "metrics", "name": "query1", "query": "max:discovery_amount_of_peers{service:bridge, host:otelcol-docker}", "aggregator": "last" }], "conditional_formats": [{ "comparator": ">", "value": 0, "palette": "white_on_green" }], "formulas": [{ "formula": "query1" }] }], "autoscale": false, "precision": 0, "timeseries_background": { "yaxis": { "include_zero": false }, "type": "area" } }, "layout": { "x": 0, "y": 0, "width": 4, "height": 2 } }, { "id": 6354351488668554, "definition": { "title": "Amount Of Peers In Backoff", "title_size": "16", "title_align": "left", "time": { "live_span": "1m" }, "type": "query_value", "requests": [{ "response_format": "scalar", "queries": [{ "data_source": "metrics", "name": "query1", "query": "max:discovery_backoff_amount{service:bridge, host:otelcol-docker}", "aggregator": "last" }], "conditional_formats": [{ "comparator": ">=", "value": 0, "palette": "white_on_green" }], "formulas": [{ "formula": "query1" }] }], "autoscale": false, "precision": 0, "timeseries_background": { "yaxis": { "include_zero": false }, "type": "area" } }, "layout": { "x": 4, "y": 0, "width": 4, "height": 2 } }, {
+                "id": 1781030776575412,
+                "definition": {
+                    "title": "Results Of Handling Peers",
+                    "title_size": "16",
+                    "title_align": "left",
+                    "time": {},
+                    "type": "query_table",
+                    "requests": [{
+                        "queries": [{ "data_source": "metrics", "name": "query1", "query": "sum:discovery_handler_peer_result{service:bridge, host:otelcol-docker} by {result}.as_count()", "aggregator": "sum" }],
+                        "response_format": "scalar",
+                        "text_formats": [
+                            [{ "match": { "type": "is_not", "value": "\"\"" }, "palette": "custom_bg", "custom_bg_color": "#375beb" }]
+                        ],
+                        "formulas": [{ "cell_display_mode": "bar", "alias": "REQUEST COUNT", "formula": "query1", "limit": { "count": 10, "order": "desc" } }]
+                    }],
+                    "has_search_bar": "auto"
+                },
+                "layout": { "x": 8, "y": 0, "width": 4, "height": 2 }
+            }, { "id": 1742934580247606, "definition": { "title": "Add Peer Requests", "title_size": "16", "title_align": "left", "time": {}, "type": "query_value", "requests": [{ "formulas": [{ "formula": "query1" }], "queries": [{ "data_source": "metrics", "name": "query1", "query": "max:discovery_add_peer{host:otelcol-docker, service:bridge}.as_count()", "aggregator": "sum" }], "response_format": "scalar", "conditional_formats": [{ "comparator": ">=", "value": 0, "palette": "white_on_green" }] }], "autoscale": false, "precision": 0, "timeseries_background": { "yaxis": { "include_zero": false }, "type": "area" } }, "layout": { "x": 0, "y": 2, "width": 4, "height": 2 } }, { "id": 4017021955030708, "definition": { "title": "Remove Peer Requests", "title_size": "16", "title_align": "left", "time": {}, "type": "query_value", "requests": [{ "formulas": [{ "formula": "query1" }], "queries": [{ "data_source": "metrics", "name": "query1", "query": "sum:discovery_remove_peer{service:bridge, host:otelcol-docker}.as_count()", "aggregator": "sum" }], "response_format": "scalar", "conditional_formats": [{ "comparator": ">=", "value": 0, "palette": "white_on_green" }] }], "autoscale": false, "precision": 0, "timeseries_background": { "yaxis": { "include_zero": false }, "type": "area" } }, "layout": { "x": 4, "y": 2, "width": 4, "height": 2 } }, {
+                "id": 3930172836223208,
+                "definition": {
+                    "title": "Results Of Finding Peers ",
+                    "title_size": "16",
+                    "title_align": "left",
+                    "time": {},
+                    "type": "query_table",
+                    "requests": [{
+                        "queries": [{ "data_source": "metrics", "name": "query1", "query": "max:discovery_find_peers_result{service:bridge, host:otelcol-docker} by {enough_peers}.as_count()", "aggregator": "max" }],
+                        "response_format": "scalar",
+                        "text_formats": [
+                            [{ "match": { "type": "is", "value": "true" }, "palette": "white_on_green" }]
+                        ],
+                        "formulas": [{ "cell_display_mode": "bar", "alias": "REQUESTS", "formula": "query1", "limit": { "count": 5, "order": "desc" } }]
+                    }],
+                    "has_search_bar": "auto"
+                },
+                "layout": { "x": 8, "y": 2, "width": 4, "height": 2 }
+            }]
+        },
+        "layout": { "x": 0, "y": 19, "width": 12, "height": 5 }
+    }, {
+        "id": 599560721703730,
+        "definition": {
+            "title": "EDS BlOCKSTORE",
+            "background_color": "vivid_blue",
+            "show_title": true,
+            "type": "group",
+            "layout_type": "ordered",
+            "widgets": [{ "id": 7486805202709488, "definition": { "title": "Cache Blockstore Size", "title_size": "16", "title_align": "left", "time": { "live_span": "1m" }, "type": "query_value", "requests": [{ "response_format": "scalar", "queries": [{ "data_source": "metrics", "name": "query1", "query": "max:eds_blockstore_cache_blockstore_size{service:bridge, host:otelcol-docker}", "aggregator": "last" }], "conditional_formats": [{ "comparator": ">", "value": 0, "palette": "white_on_green" }], "formulas": [{ "formula": "query1" }] }], "autoscale": true, "precision": 2, "timeseries_background": { "type": "bars", "yaxis": {} } }, "layout": { "x": 0, "y": 0, "width": 4, "height": 2 } }, { "id": 2797566565142898, "definition": { "title": "Cache Recent Size", "title_size": "16", "title_align": "left", "time": { "live_span": "1m" }, "type": "query_value", "requests": [{ "response_format": "scalar", "queries": [{ "data_source": "metrics", "name": "query1", "query": "max:eds_blockstore_cache_recent_size{service:bridge, host:otelcol-docker}", "aggregator": "last" }], "conditional_formats": [{ "comparator": ">", "value": 0, "palette": "white_on_green" }], "formulas": [{ "formula": "query1" }] }], "autoscale": true, "precision": 2, "timeseries_background": { "type": "bars", "yaxis": {} } }, "layout": { "x": 4, "y": 0, "width": 4, "height": 2 } }, {
+                "id": 4926653263946734,
+                "definition": {
+                    "title": "Evicted Counter",
+                    "title_size": "16",
+                    "title_align": "left",
+                    "time": {},
+                    "type": "query_table",
+                    "requests": [{
+                        "queries": [{ "data_source": "metrics", "name": "query1", "query": "max:eds_blockstore_cache_blockstore_evicted_counter{service:bridge, host:otelcol-docker} by {failed}.as_count()", "aggregator": "max" }],
+                        "response_format": "scalar",
+                        "text_formats": [
+                            [{ "match": { "type": "is", "value": "false" }, "palette": "white_on_green" }, { "match": { "type": "is", "value": "true" }, "palette": "white_on_red" }]
+                        ],
+                        "formulas": [{ "cell_display_mode": "bar", "alias": "REQUESTS", "formula": "query1", "limit": { "count": 5, "order": "desc" } }]
+                    }],
+                    "has_search_bar": "auto"
+                },
+                "layout": { "x": 8, "y": 0, "width": 4, "height": 2 }
+            }, { "id": 8938727286056780, "definition": { "title": "Dagstore Shards State", "title_size": "16", "title_align": "left", "time": { "live_span": "5m" }, "requests": [{ "formulas": [{ "formula": "query1", "limit": { "count": 500, "order": "desc" } }], "queries": [{ "data_source": "metrics", "name": "query1", "query": "max:eds_store_dagstore_shards{service:bridge, host:otelcol-docker} by {shard_status}", "aggregator": "last" }], "response_format": "scalar", "style": { "palette": "semantic" } }], "type": "sunburst", "legend": { "type": "table" } }, "layout": { "x": 0, "y": 2, "width": 4, "height": 6 } }, { "id": 1446467864692616, "definition": { "title": "Get Car Blockstore Time p95", "title_size": "16", "title_align": "left", "show_legend": true, "legend_layout": "horizontal", "legend_columns": ["avg", "min", "max", "value", "sum"], "time": {}, "type": "timeseries", "requests": [{ "formulas": [{ "alias": "p95", "number_format": { "unit": { "type": "canonical_unit", "unit_name": "second" } }, "formula": "query3" }], "queries": [{ "data_source": "metrics", "name": "query3", "query": "p95:eds_store_get_car_blockstore_time_histogram{service:bridge, failed:false, host:otelcol-docker}" }], "response_format": "timeseries", "style": { "palette": "dog_classic", "line_type": "solid", "line_width": "normal" }, "display_type": "bars" }] }, "layout": { "x": 4, "y": 2, "width": 4, "height": 2 } }, {
+                "id": 8360377141594152,
+                "definition": {
+                    "title": "Recent Evicted Counter",
+                    "title_size": "16",
+                    "title_align": "left",
+                    "time": {},
+                    "type": "query_table",
+                    "requests": [{
+                        "queries": [{ "data_source": "metrics", "name": "query1", "query": "sum:eds_blockstore_cache_recent_evicted_counter{service:bridge, host:otelcol-docker} by {failed}.as_count()", "aggregator": "max" }],
+                        "response_format": "scalar",
+                        "text_formats": [
+                            [{ "match": { "type": "is", "value": "false" }, "palette": "white_on_green" }, { "match": { "type": "is", "value": "true" }, "palette": "white_on_red" }]
+                        ],
+                        "formulas": [{ "cell_display_mode": "bar", "alias": "REQUESTS", "formula": "query1", "limit": { "count": 5, "order": "desc" } }]
+                    }],
+                    "has_search_bar": "auto"
+                },
+                "layout": { "x": 8, "y": 2, "width": 4, "height": 2 }
+            }, { "id": 6403042386053752, "definition": { "title": "Get Car Time p95", "title_size": "16", "title_align": "left", "show_legend": true, "legend_layout": "horizontal", "legend_columns": ["avg", "min", "max", "value", "sum"], "time": {}, "type": "timeseries", "requests": [{ "formulas": [{ "alias": "p95", "number_format": { "unit": { "type": "canonical_unit", "unit_name": "second" } }, "style": { "palette": "green", "palette_index": 3 }, "formula": "query3" }], "queries": [{ "data_source": "metrics", "name": "query3", "query": "p95:eds_store_get_car_time_histogram{service:bridge, failed:false, host:otelcol-docker}" }], "response_format": "timeseries", "style": { "palette": "dog_classic", "line_type": "solid", "line_width": "normal" }, "display_type": "bars" }] }, "layout": { "x": 4, "y": 4, "width": 4, "height": 2 } }, {
+                "id": 3179723526166676,
+                "definition": {
+                    "title": "Get Counter",
+                    "title_size": "16",
+                    "title_align": "left",
+                    "time": {},
+                    "type": "query_table",
+                    "requests": [{
+                        "queries": [{ "data_source": "metrics", "name": "query1", "query": "sum:eds_blockstore_cache_blockstore_get_counter{service:bridge, host:otelcol-docker} by {found}.as_count()", "aggregator": "avg" }],
+                        "response_format": "scalar",
+                        "text_formats": [
+                            [{ "match": { "type": "is", "value": "false" }, "palette": "white_on_red" }, { "match": { "type": "is", "value": "true" }, "palette": "white_on_green" }]
+                        ],
+                        "formulas": [{ "cell_display_mode": "bar", "alias": "REQUESTS", "formula": "query1", "limit": { "count": 5, "order": "desc" } }]
+                    }],
+                    "has_search_bar": "auto"
+                },
+                "layout": { "x": 8, "y": 4, "width": 4, "height": 2 }
+            }, { "id": 963796859454198, "definition": { "title": "Get DAH Time p95", "title_size": "16", "title_align": "left", "show_legend": true, "legend_layout": "horizontal", "legend_columns": ["avg", "min", "max", "value", "sum"], "time": {}, "type": "timeseries", "requests": [{ "formulas": [{ "alias": "p95", "number_format": { "unit": { "type": "canonical_unit", "unit_name": "second" } }, "style": { "palette": "orange", "palette_index": 3 }, "formula": "query3" }], "queries": [{ "data_source": "metrics", "name": "query3", "query": "p95:eds_store_get_dah_time_histogram{service:bridge,failed:false, host:otelcol-docker}" }], "response_format": "timeseries", "style": { "palette": "dog_classic", "line_type": "solid", "line_width": "normal" }, "display_type": "bars" }] }, "layout": { "x": 4, "y": 6, "width": 4, "height": 2 } }, {
+                "id": 5829316281170216,
+                "definition": {
+                    "title": "Get Recent Counter",
+                    "title_size": "16",
+                    "title_align": "left",
+                    "time": {},
+                    "type": "query_table",
+                    "requests": [{
+                        "queries": [{ "data_source": "metrics", "name": "query1", "query": "sum:eds_blockstore_cache_recent_get_counter{service:bridge, host:otelcol-docker} by {found}.as_count()", "aggregator": "avg" }],
+                        "response_format": "scalar",
+                        "text_formats": [
+                            [{ "match": { "type": "is", "value": "true" }, "palette": "white_on_green" }, { "match": { "type": "is", "value": "false" }, "palette": "white_on_red" }]
+                        ],
+                        "formulas": [{ "cell_display_mode": "bar", "alias": "REQUESTS", "formula": "query1", "limit": { "count": 5, "order": "desc" } }]
+                    }],
+                    "has_search_bar": "auto"
+                },
+                "layout": { "x": 8, "y": 6, "width": 4, "height": 2 }
+            }]
+        },
+        "layout": { "x": 0, "y": 24, "width": 12, "height": 9 }
+    }, { "id": 1120755821806818, "definition": { "title": "PFB TRANSACTIONS", "background_color": "vivid_blue", "show_title": true, "type": "group", "layout_type": "ordered", "widgets": [{ "id": 4102717285174984, "definition": { "title": "Total Count of Submitted Tx ", "title_size": "16", "title_align": "left", "time": {}, "type": "query_value", "requests": [{ "response_format": "scalar", "queries": [{ "name": "query1", "data_source": "metrics", "query": "max:pfb_count{service:bridge, host:otelcol-docker}.as_count()", "aggregator": "sum" }], "conditional_formats": [{ "comparator": ">=", "value": 0, "palette": "white_on_green" }], "formulas": [{ "formula": "query1" }] }], "autoscale": false, "precision": 0, "timeseries_background": { "yaxis": { "include_zero": false }, "type": "area" } }, "layout": { "x": 0, "y": 0, "width": 3, "height": 3 } }, { "id": 7013448514683566, "definition": { "title": "Last Submitted Tx Timestamp", "title_size": "16", "title_align": "left", "time": {}, "type": "query_value", "requests": [{ "response_format": "scalar", "queries": [{ "name": "query1", "data_source": "metrics", "query": "max:last_pfb_timestamp{service:bridge, host:otelcol-docker}.as_count()", "aggregator": "sum" }], "conditional_formats": [{ "comparator": ">=", "value": 0, "palette": "white_on_green" }], "formulas": [{ "formula": "query1" }] }], "autoscale": false, "precision": 0, "timeseries_background": { "yaxis": { "include_zero": false }, "type": "area" } }, "layout": { "x": 3, "y": 0, "width": 3, "height": 3 } }] }, "layout": { "x": 0, "y": 33, "width": 12, "height": 4, "is_column_break": true } }],
+    "template_variables": [],
+    "layout_type": "ordered",
+    "notify_list": [],
+    "reflow_type": "fixed"
+}

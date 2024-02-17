@@ -1,0 +1,23 @@
+{{!-- Escalation Message --}}
+{{#is_renotify}}
+
+{{override_priority 'P1'}}
+
+-------------------------------------------------
+🚨 *Alert Escalation*
+-------------------------------------------------
+${critical_targets}
+
+*DETAILS:*
+• 📈 *Metric:* ${metricType}
+• 🌐 *Service:* ${service} '${name}'
+• 🚀 *Environment:* ${environment}
+• 🚧 *Threshold:* ${threshold} ${metricUnit}
+• 📋 *Current Value:* {{eval "round(value, 2)"}} ${metricUnit}
+
+_Status:_ This alert has escalated as the issue persists. Further investigation and immediate action may be required.
+
+{{/is_renotify}}
+
+-------------------------------------------------
+🕒 *Triggered at (UTC):* {{last_triggered_at}}

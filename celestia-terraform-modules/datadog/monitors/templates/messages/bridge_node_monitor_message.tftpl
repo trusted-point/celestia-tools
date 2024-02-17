@@ -1,0 +1,41 @@
+{{!-- Alert Section --}}
+{{#is_alert}}
+
+{{override_priority 'P1'}}
+
+-------------------------------------------------
+🚨 *Alert*
+-------------------------------------------------
+${critical_targets}
+
+*DETAILS:*
+• 📈 *Metric:* ${metricType}
+• 🌐 *Service:* ${service} '${name}'
+• 🚀 *Environment:* ${environment}
+• 🚧 *Threshold:* ${threshold} ${metricUnit}
+• 📋 *Current Value:* {{eval "round(value, 2)"}} ${metricUnit}
+
+_Action:_ Please investigate the cause of this increase.
+
+{{/is_alert}}
+
+{{!-- Alert Recovery Section --}}
+{{#is_alert_recovery}}
+
+-------------------------------------------------
+✅ *Alert Recovery*
+-------------------------------------------------
+${critical_targets}
+
+*DETAILS:*
+• 📈 *Metric:* ${metricType}
+• 🌐 *Service:* ${service} '${name}'
+• 🚀 *Environment:* ${environment}
+• 🚧 *Threshold:* ${threshold} ${metricUnit}
+• 📋 *Current Value:* {{eval "round(value, 2)"}} ${metricUnit}
+
+_Status:_ This is within acceptable parameters. No further immediate action required.
+{{/is_alert_recovery}}
+
+-------------------------------------------------
+🕒 *Triggered at (UTC):* {{last_triggered_at}}
