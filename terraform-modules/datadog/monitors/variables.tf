@@ -113,7 +113,7 @@ variable "runtime_counter_is_stuck_aggregator" {
   default     = "avg"
 
   validation {
-    condition     = contains(["min", "max", "avg"], var.high_consensus_latency_aggregator)
+    condition     = contains(["min", "max", "avg"], var.runtime_counter_is_stuck_aggregator)
     error_message = "The 'runtime_counter_is_stuck_aggregator' must be one of the following values: 'min', 'max', 'avg'."
   }
 }
@@ -124,7 +124,7 @@ variable "runtime_counter_is_stuck_timeframe" {
   default     = "last_5m"
 
   validation {
-    condition     = contains(["last_1m", "last_5m", "last_10m", "last_15m", "last_30m", "last_1h", "last_2h", "last_4h", "last_1d"], var.high_consensus_latency_timeframe)
+    condition     = contains(["last_1m", "last_5m", "last_10m", "last_15m", "last_30m", "last_1h", "last_2h", "last_4h", "last_1d"], var.runtime_counter_is_stuck_timeframe)
     error_message = "The 'runtime_counter_is_stuck_timeframe' must be one of the following values: 'last_1m', 'last_5m', 'last_10m', 'last_15m', 'last_30m', 'last_1h', 'last_2h', 'last_4h', 'last_1d'."
   }
 }
@@ -134,7 +134,7 @@ variable "runtime_counter_is_stuck_threshold_critical" {
   description = "Critical alert threshold for the runtime counter, beyond which the bridge node's performance is considered severely impacted."
 }
 
-variable "runtime_counter_is_stuck_threshold_recovery_critical" {
+variable "runtime_counter_is_stuck_threshold_critical_recovery" {
   default     = 1
   description = "Critical alert recovery threshold for the runtime counter. When the runtime counter is stuck beyond this threshold, the bridge node's performance is considered severely impacted, triggering recovery measures."
 }
@@ -163,7 +163,7 @@ variable "low_header_sync_rate_aggregator" {
   default     = "avg"
 
   validation {
-    condition     = contains(["min", "max", "avg"], var.low_certificate_creation_rate_aggregator)
+    condition     = contains(["min", "max", "avg"], var.low_header_sync_rate_aggregator)
     error_message = "The 'low_header_sync_rate_aggregator' must be one of the following values: 'min', 'max', 'avg'."
   }
 }
@@ -174,9 +174,15 @@ variable "low_header_sync_rate_timeframe" {
   default     = "last_5m"
 
   validation {
-    condition     = contains(["last_1m", "last_5m", "last_10m", "last_15m", "last_30m", "last_1h", "last_2h", "last_4h", "last_1d"], var.low_certificate_creation_rate_timeframe)
+    condition     = contains(["last_1m", "last_5m", "last_10m", "last_15m", "last_30m", "last_1h", "last_2h", "last_4h", "last_1d"], var.low_header_sync_rate_timeframe)
     error_message = "The 'low_header_sync_rate_timeframe' must be one of the following values: 'last_1m', 'last_5m', 'last_10m', 'last_15m', 'last_30m', 'last_1h', 'last_2h', 'last_4h', 'last_1d'."
   }
+}
+
+variable "low_header_sync_rate_shift_timeframe" {
+  description = "Specifies the comparison timeframe for assessing changes in the header synchronization rate, aiding in trend analysis and anomaly detection."
+  type        = string
+  default     = "last_10m"
 }
 
 variable "low_header_sync_rate_threshold_critical" {
@@ -184,7 +190,7 @@ variable "low_header_sync_rate_threshold_critical" {
   description = "Critical threshold for headers synchronization rate, in certificates per second, below which the validator's activity is considered alarmingly low."
 }
 
-variable "low_header_sync_rate_threshold_recovery_critical" {
+variable "low_header_sync_rate_threshold_critical_recovery" {
   default     = 0.1
   description = "Critical alert recovery threshold for the headers synchronization rate. When the headers synchronization rate falls below this threshold, indicating potential issues with synchronization, recovery measures are triggered to ensure optimal performance of the bridge node."
 }

@@ -1,14 +1,14 @@
 locals {
-  filter_tags = "{service:${var.service}"
+  filter_tags = "{service:${var.service}}"
   monitors = {
     "bridge_runtime_counter_is_stuck" = {
       enabled            = var.runtime_counter_is_stuck_enabled
-      name               = "Bridge Runtime Counter Stuck"
+      name               = "Runtime Counter Stuck"
       type               = "query alert"
       message            = var.runtime_counter_is_stuck_message
       escalation_message = var.runtime_counter_is_stuck_escalation_message
       priority           = 1
-      query              = "${var.runtime_counter_is_stuck_aggregator}(${var.runtime_counter_is_stuck_timeframe}):sum:node_runtime_counter_in_seconds${local.filter_tags}.as_rate() > ${var.runtime_counter_is_stuck_threshold_critical}"
+      query              = "${var.runtime_counter_is_stuck_aggregator}(${var.runtime_counter_is_stuck_timeframe}):sum:node_runtime_counter_in_seconds${local.filter_tags}.as_rate() <= ${var.runtime_counter_is_stuck_threshold_critical}"
       thresholds         = {
         critical = var.runtime_counter_is_stuck_threshold_critical
         critical_recovery = var.runtime_counter_is_stuck_threshold_critical_recovery
@@ -22,7 +22,7 @@ locals {
       message            = var.low_header_sync_rate_message
       escalation_message = var.low_header_sync_rate_escalation_message
       priority           = 1
-      query              = "pct_change(${var.low_header_sync_rate_aggregator}(${var.low_header_sync_rate_timeframe}),${var.low_header_sync_rate_shift_timeframe}):avg:total_synced_headers${local.filter_tags} <= ${var.low_header_sync_rate_threshold_critical}"
+      query              = "pct_change(${var.low_header_sync_rate_aggregator}(${var.low_header_sync_rate_timeframe}),${var.low_header_sync_rate_shift_timeframe}):avg:total_synced_headers${local.filter_tags} < ${var.low_header_sync_rate_threshold_critical}"
       thresholds         = {
         critical = var.low_header_sync_rate_threshold_critical
         critical_recovery = var.low_header_sync_rate_threshold_critical_recovery
@@ -41,14 +41,13 @@ locals {
 resource "datadog_monitor" "bridge_node_monitor" {
   for_each = {for key, monitor in local.monitors: key => monitor if monitor.enabled == "true"}
 
-  name    = "[${var.environment}] [${var.service}] [${var.name}] ${each.value.name} {{#is_alert}}{{{comparator}}} {{threshold}}% ({{value}}%){{/is_alert}}{{#is_warning}}{{{comparator}}} {{warn_threshold}}% ({{value}}%){{/is_warning}}"
+  name    = "[${var.environment}] [${var.service}] ${each.value.name} {{#is_alert}}{{{comparator}}} {{threshold}}% ({{value}}%){{/is_alert}}{{#is_warning}}{{{comparator}}} {{warn_threshold}}% ({{value}}%){{/is_warning}}"
   type    = each.value.type
   priority = each.value.priority
   message = each.value.message != "" ? each.value.message : templatefile("${path.module}/templates/messages/bridge_node_monitor_message.tftpl", {
     critical_targets   = join(" ", distinct(lookup(var.notification_targets, "critical", [""])))
     environment        = var.environment
     service            = var.service
-    name               = var.name
     metricType         = each.key
     metricUnit         = each.value.metric_unit
     threshold          = each.value.thresholds.critical
@@ -57,7 +56,6 @@ resource "datadog_monitor" "bridge_node_monitor" {
     critical_targets   = join(" ", distinct(lookup(var.notification_targets, "critical", [""])))
     environment        = var.environment
     service            = var.service
-    name               = var.name
     metricType         = each.key
     metricUnit         = each.value.metric_unit
     threshold          = each.value.thresholds.critical
