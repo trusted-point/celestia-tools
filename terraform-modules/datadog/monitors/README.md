@@ -11,7 +11,7 @@ This module is designed for the easy creation of Datadog Monitors to monitor and
 
 ```hcl
 module "datadog-monitors-celestia-bridge" {
-  source = "./celestia-terraform-modules/datadog/monitors"
+  source = "./terraform-modules/datadog/monitors"
 
   service = "bridge"
   environment = "mainnet"

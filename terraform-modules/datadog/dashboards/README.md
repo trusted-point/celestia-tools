@@ -10,7 +10,7 @@ This module facilitates the seamless generation of Datadog Dashboards for monito
 
 ```hcl
 module "datadog-dashboards-celestia" {
-  source = "./celestia-terraform-modules/datadog/dashboards"
+  source = "./terraform-modules/datadog/dashboards"
 }
 ```
 
