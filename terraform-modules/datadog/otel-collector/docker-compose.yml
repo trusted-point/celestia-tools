@@ -1,0 +1,16 @@
+version: '3.3'
+
+services:
+  otel-collector:
+    container_name: otel-collector
+    image: otel/opentelemetry-collector-contrib:0.94.0
+    command: ["--config=/etc/otel-collector-config.yaml"]
+    volumes:
+      - ./config/otel-collector-config.yaml:/etc/otel-collector-config.yaml
+    ports:
+      - 127.0.0.1:${OTEL_GRPC_PORT:-4317}:4317
+      - 127.0.0.1:${OTEL_HTTP_PORT:-4318}:4318
+      - ${OTEL_PROMETHEUS_EXPORTER:-8888}:8888
+    environment:
+      - DD_API_KEY=${DD_API_KEY}
+      - DD_SITE=${DD_SITE}

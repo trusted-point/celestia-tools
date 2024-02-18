@@ -1,0 +1,30 @@
+receivers:
+  otlp:
+    protocols:
+      grpc:
+      http:
+
+exporters:
+  datadog:
+    hostname: "otelcol-docker"
+    api:
+      key: ${DD_API_KEY}
+      site: ${DD_SITE}
+
+processors:
+  batch:
+  batch/datadog:
+    send_batch_max_size: 1000
+    send_batch_size: 100
+    timeout: 10s
+  memory_limiter:
+    limit_mib: 1500
+    spike_limit_mib: 512
+    check_interval: 5s
+
+service:
+  pipelines:
+    metrics:
+      receivers: [otlp]
+      processors: [batch/datadog, memory_limiter]
+      exporters: [datadog]
