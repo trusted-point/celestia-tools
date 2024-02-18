@@ -19,20 +19,20 @@ module "datadog-dashboards-celestia" {
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.12.31 |
-| <a name="requirement_datadog"></a> [datadog](#requirement\_datadog) | >= 3.1.2 |
+| <a name="requirement_terraform"></a> [terraform](#requirement_terraform) | >= 0.12.31 |
+| <a name="requirement_datadog"></a> [datadog](#requirement_datadog) | >= 3.1.2 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_datadog"></a> [datadog](#provider\_datadog) | >= 3.1.2 |
+| <a name="provider_datadog"></a> [datadog](#provider_datadog) | >= 3.1.2 |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| <a name="output_dashboard_url"></a> [errors\_id](#output\_dashboard\_url) | the URL of the dashboard |
+| <a name="output_dashboard_urls"></a> [dashboard_urls](#output_dashboard_urls) | the URLs of the created dashboards |
 <!-- END_TF_DOCS -->
 ## Resource Documentation
 * [Datadog Dashboards Documentation](https://docs.datadoghq.com/dashboards/)
