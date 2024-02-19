@@ -26,6 +26,7 @@
 - `!cons`: Consensus info (Use during upgrades)
 - `!vals_all`: All validators including bonded, unbonded, unbonding
 - `!vals_live`: Real-Time validators signatures
+- `!self`: Check all validators that you are subscribing without providing a valoper
 
 ### ✔️ Bridge Monitroing
 - `!sub_bridge`: Subscribe bridge alerts
@@ -50,6 +51,7 @@
 - `!sub <valoper>`: Subscribe validator alerts
 - `!unsub <valoper>`: Unsubscribe validator alerts
 - `!unsub_all`: Unsubscribe all validators
+- `!self`: Check all validators that you are subscribing without providing a valoper
 - Manual subscription to governance announcements
 - `!sub_gov`: Subscribe governance announcements
 - `!unsub_gov`: Unsubscribe governance announcements
