@@ -28,7 +28,7 @@
 - `!vals_live`: Real-Time validators signatures
 - `!self`: Check all validators that you are subscribing without providing a valoper
 
-### ✔️ Bridge Monitroing
+### ✔️ Bridge Monitoring
 - `!sub_bridge`: Subscribe bridge alerts
 - `!subs_bridge`: Check you current bridge subscription/s
 - `!unsub_bridge`: Unubscribe all bridge alerts
