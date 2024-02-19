@@ -27,6 +27,12 @@
 - `!vals_all`: All validators including bonded, unbonded, unbonding
 - `!vals_live`: Real-Time validators signatures
 
+### ✔️ Bridge Monitroing
+- `!sub_bridge`: Subscribe bridge alerts
+- `!subs_bridge`: Check you current bridge subscription/s
+- `!unsub_bridge`: Unubscribe all bridge alerts
+- `!self_bridge`: To quickly check bridges you are subscribing
+
 ### ✔️ Chain
 - `!chain`: Useful chain metrics
 - `!params`: Network parameters + binary/tendermint/SDK versions
