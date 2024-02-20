@@ -1,4 +1,4 @@
-[<img src='assets/celestia2.png' alt='banner' width= '99.9%'>]()
+[<img src='assets/For-post.png' alt='banner' width= '99.9%'>]()
 
 ▶️ **[JOIN DISCORD](https://discord.gg/fAaQR8cWrt) ◀️ AND START MONITORING CELESTIA NETWORK**
 ---
