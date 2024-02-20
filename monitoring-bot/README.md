@@ -59,7 +59,7 @@
 ### ✔️ Other
 - `!feedback`: Leave us feedback / Report a bug
 - `!help`: All available commands with description
-- 
+
 ### ✔️ Current validator alerts thresholds
 - Level one:   <95% (mocha: 90%)
 - Level two:   <87% (mocha: 75%)
