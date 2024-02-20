@@ -59,3 +59,19 @@
 ### ✔️ Other
 - `!feedback`: Leave us feedback / Report a bug
 - `!help`: All available commands with description
+- 
+### ✔️ Current validator alerts thresholds
+- Level one:   <95% (mocha: 90%)
+- Level two:   <87% (mocha: 75%)
+- Level three: <79% (mocha: 50%)
+- Recovering
+- Recovered
+- Commission change
+- Moniker change
+- Dropping out of the active set
+- Joining the active set
+- 
+### ✔️ Current bridge alerts thresholds
+- Out of sync: when bridge's local height is 500 headers below the glogal ones 
+- Stuck: when bridge's local height is stuck for > 10 minutes
+- Down: when bridge's RPC port is unreachable for > 10 minutes
