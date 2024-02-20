@@ -70,7 +70,7 @@
 - Moniker change
 - Dropping out of the active set
 - Joining the active set
-- 
+  
 ### ✔️ Current bridge alerts thresholds
 - Out of sync: when bridge's local height is 500 headers below the glogal ones 
 - Stuck: when bridge's local height is stuck for > 10 minutes
