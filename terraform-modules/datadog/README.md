@@ -2,11 +2,15 @@
 
 Explore the Celestia Terraform Datadog Modules directory, dedicated to providing Terraform modules crafted to streamline the deployment of essential Datadog resources. These modules are meticulously designed to empower efficient monitoring and observability across Celestia network entities, enhancing your monitoring capabilities and ensuring a seamless experience in overseeing the Celestia network.
 
-### Prerequisites
+## ⚙️ Prerequisites
 
 Before you begin using the Terraform modules in this directory to deploy Datadog resources for monitoring the Celestia network, ensure that you have the following prerequisites in place:
 
-### DataDog Provider Configuration
+#### 1. Install Terraform
+
+To install Terraform, follow the platform-dependent instructions provided in the [official Terraform installation guide](https://developer.hashicorp.com/terraform/install).
+
+#### 2. Configure DataDog Provider
 
 You will need to configure the DataDog provider in your Terraform environment to establish a connection with your Datadog account. Below is an example of how to configure the provider in your Terraform configuration:
 
@@ -24,105 +28,129 @@ datadog_api_key = "<your_datadog_api_key>"
 datadog_app_key = "<your_datadog_app_key>"
 ```
 
-Replace **your_datadog_api_key_here** and **your_datadog_app_key_here** with your actual Datadog API key and application key.
+Replace **<your_datadog_api_key>** and **<your_datadog_app_key_here>** with your actual Datadog API key and application key.
 
-### Configuring Datadog Agent for Custom Metrics
+##### Note: Datadog API and App Keys
 
-To collect custom metrics from SUI Validator or Fullnode Prometheus endpoints, you need to configure the Datadog agent. Follow these steps:
+To integrate with Datadog services and export metrics, you'll need both API and App keys. Generate them in your Datadog Organization Settings:
 
-#### Install Datadog Agent
-1. Install the Datadog agent using the installation method appropriate for your platform. You can find installation instructions on the official Datadog website: [Datadog Agent Installation](https://docs.datadoghq.com/agent/?tab=Linux).
+1. Log in to your Datadog account.
+2. Navigate to Organization Settings.
+3. Generate API and App keys in the designated section.
+4. Copy and use these keys where required for seamless integration and metric visualization.
 
-#### Enable Datadog Openmetrics Integration
-2. Enable the Datadog Openmetrics integration through the Datadog UI on the Integrations page.
+#### 3. Install Docker Compose
 
-#### Configure Openmetrics Check
-3. Create a configuration file named `conf.yaml` within the Datadog agent's configuration directory for the Openmetrics check. You can use the configuration file provided in this repository: `./datadog_conf/openmetrics.yaml`. This file is pre-configured to scrape SUI Validator metrics. Replace the placeholders marked in `<*>` brackets with your custom values.
+To install Docker, follow these steps:
 
-#### Save the Configuration
-4. Save the `conf.yaml` file and verify the Datadog agent's health checks to ensure that the configuration was saved correctly. Use the following command:
-
-```shell
-datadog-agent check openmetrics
+```bash
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
+sudo apt update
+sudo apt install docker-ce
 ```
 
-#### Restart the Agent
+After installing Docker, add your user to the Docker group to run Docker commands without sudo:
 
-Restart the Datadog agent to apply the new configuration. The agent will now scrape metrics from the SUI Validator Prometheus endpoint.
+```bash
+sudo usermod -aG docker ${USER}
+```
 
-#### Monitor Custom Metrics
+To install Docker Compose, run the following commands:
 
-You can now explore custom metrics from the SUI Validator or Fullnode in the Datadog UI's metrics explorer. The same process can be repeated for Fullnode metrics. Additionally, you can add multiple targets to the Openmetrics configuration file to scrape metrics from multiple servers.
+```bash
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+docker-compose --version
+```
 
-With the DataDog provider and Openmetrics check configured correctly, you'll be ready to use the Terraform modules to deploy and manage Datadog resources for monitoring the SUI network effectively.
+#### 4. Enabling Metrics on Bridge Node
 
-### Modules
+To enable metrics on the Bridge Node, you can utilize the following options when starting the Bridge process using `celestia bridge start`:
+
+- `--metrics`: This flag enables OTLP metrics with HTTP exporter.
+- `--metrics.endpoint`: This option sets the HTTP endpoint for OTLP metrics to be exported to. By default, it is set to "localhost:4318".
+- `--metrics.tls`: This flag determines whether to enable TLS connection to the OTLP metric backend. By default, it is set to true.
+
+Ensure to include these options when starting the Bridge process:
+
+```bash
+celestia bridge start --metrics --metrics.endpoint=localhost:4318 --metrics.tls=true
+```
+
+Remember that there might be other options and flags available to configure additional properties of the Bridge user. Check the documentation or help command (`celestia bridge start --help`) to explore all available options and customize the configuration according to your needs.
+
+#### 5. Starting OpenTelemetry Collector with Datadog Exporter
+
+Follow these steps to start the OpenTelemetry Collector process with the Datadog exporter:
+
+```bash
+cd otel-collector
+cp .env.example .env
+```
+
+Replace `<DD_API_KEY>` with your Datadog API key and `<DD_SITE>` with your Datadog site in the `.env` file:
+
+```
+DD_API_KEY="<DD_API_KEY>"
+DD_SITE="<DD_SITE>"
+```
+
+Start the Docker container using the provided Docker Compose file located within the same directory:
+
+```bash
+docker-compose up -d
+```
+
+Check the running processes:
+
+```bash
+docker-compose ps
+```
+
+If everything was configured correctly and the proper Datadog key was provided, after several minutes, you should be able to see metrics in the Datadog Metrics Explorer.
+
+If the container failed to start or if there are no metrics visible in the Datadog Explorer, as a first step, it's recommended to check the Docker Compose logs by using:
+
+```bash
+docker-compose logs -f
+```
+
+## 🛠️ Terraform Modules
 
 Explore the specialized modules available within this directory:
 
-- [**dashboards**](./dashboards/): This subdirectory contains Terraform modules tailored for creating and managing Datadog dashboards specifically configured to visualize critical data and insights related to the SUI network and its components.
-
-- [**monitors**](./monitors/): Inside this subdirectory, you'll discover Terraform modules designed to facilitate the setup and management of Datadog monitors. These monitors play a crucial role in proactively detecting and alerting on performance issues and anomalies within the SUI network.
-
-- [**service_level_objectives**](./service_level_objectives/): The service level objectives (SLOs) are a fundamental aspect of any monitoring strategy. In this subdirectory, you'll find Terraform modules that simplify the creation and management of SLO resources within Datadog, allowing you to define and track the reliability of your SUI network services effectively.
+| Module                          | Description                                                                                                                                                                                                                 |
+| ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [**dashboards**](./dashboards/) | Terraform modules tailored for creating and managing Datadog dashboards specifically configured to visualize critical data and insights related to the Celestia network and its components.                                      |
+| [**monitors**](./monitors/)     | Terraform modules designed to facilitate the setup and management of Datadog monitors. These monitors play a crucial role in proactively detecting and alerting on performance issues and anomalies within the Celestia network. |
 
 Feel free to navigate to the subdirectory that aligns with your specific monitoring needs. Each subdirectory's README provides detailed information on how to use the corresponding Terraform modules, along with configuration options and best practices.
 
-Choose the module that suits your requirements and leverage the power of Datadog for monitoring and ensuring the performance and reliability of the SUI network.
+Choose the module that suits your requirements and leverage the power of Datadog for monitoring and ensuring the performance and reliability of the Celestia network.
 
-## Usage example
+### Example Installation of Bridge Dashboard & Monitors
+
+Here's an example of how to use Terraform modules to set up dashboards and monitors for Celestia Bridge:
 
 ```hcl
-module "datadog_sui_dashboards" {
-  source = "./datadog/dashboards"
+module "datadog-dashboards" {
+  source = "./terraform-modules/datadog/dashboards"
 }
 
-module "datadog_sui_monitors" {
-  source = "./datadog/monitors"
+module "datadog_monitors" {
+  source = "./terraform-modules/datadog/monitors"
 
-  name = "my_validator"
-  service = "validator"
-  chain_id = "4c78adac"
-  environment = "testnet"
-}
-
-module "datadog-sui-service_level_objectives" {
-  source = "../datadog/service_level_objectives"
-
-  name = "my_validator"
-  service = "validator"
-  chain_id = "4c78adac"
-  environment = "testnet"
-
-  consensus_latency_monitor_ids = [
-    module.datadog_monitors.validator_monitor_ids["validator_high_consensus_latency"]
-  ]
-
-  owned_objects_certificates_execution_latency_monitor_ids = [
-    module.datadog_monitors.validator_monitor_ids["validator_high_owned_objects_certificates_execution_latency"]
-  ]
-
-  shared_objects_certificates_execution_latency_monitor_ids = [
-    module.datadog_monitors.validator_monitor_ids["validator_high_shared_objects_certificates_execution_latency"]
-  ]
-
-  certificate_creation_rate_monitor_ids = [
-    module.datadog_monitors.validator_monitor_ids["validator_low_certificate_creation_rate"]
-  ]
-
-  consensus_reliability_monitor_ids = [
-    module.datadog_monitors.validator_monitor_ids["validator_low_consensus_proposal_rate"]
-  ]
+  service = "bridge"
+  environment = "mainnet"
 }
 ```
 
-This code snippet demonstrates how to use Terraform modules to deploy Datadog monitoring for the SUI Validator. It includes the following modules:
+In this example:
 
-- `datadog_sui_dashboards`: Deploys Datadog dashboards.
-- `datadog_sui_monitors`: Sets up Datadog monitors specific to the SUI Validator.
-- `datadog-sui-service_level_objectives`: Configures Service Level Objectives (SLOs) for the SUI Validator based on various metrics.
+The `datadog-dashboards` module is used to create and manage Datadog dashboards tailored for Celestia Bridge monitoring.
+The `datadog_monitors` module is utilized to set up monitors specific to Celestia Bridge in the specified environment (in this case, "mainnet").
 
-The configuration includes specifying the name, service, chain ID, and environment for the SUI Validator, as well as associating monitors with specific metrics for monitoring and alerting. This example provides a comprehensive setup for monitoring SUI Validator performance.
+#### Final Result in Datadog
 
-
-git filter-branch --tree-filter 'rm -rf test/' --prune-empty HEAD
+![Celestia Bridge Dashboard](https://trusted-point.s3.amazonaws.com/datadog/dashboards/bridge_dashboard.png)
