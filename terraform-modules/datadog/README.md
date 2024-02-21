@@ -1,6 +1,6 @@
 # Celestia Terraform Datadog Modules
 
-Explore the Celestia Terraform Datadog Modules directory, dedicated to providing Terraform modules crafted to streamline the deployment of essential Datadog resources. These modules are meticulously designed to empower efficient monitoring and observability across Celestia network entities, enhancing your monitoring capabilities and ensuring a seamless experience in overseeing the Celestia network.
+Explore the Celestia Terraform Datadog Modules directory, dedicated to providing Terraform modules crafted to streamline the deployment of essential Datadog resources. These modules are meticulously designed to empower efficient monitoring and observability across Celestia Data Availability Nodes (Bridge), enhancing your monitoring capabilities and ensuring a seamless experience in overseeing your performance.
 
 ## ⚙️ Prerequisites
 
