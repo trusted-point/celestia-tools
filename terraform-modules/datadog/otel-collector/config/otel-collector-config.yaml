@@ -5,6 +5,8 @@ receivers:
       http:
 
 exporters:
+  otlphttp:
+    endpoint: https://otel.celestia.observer
   datadog:
     hostname: "otelcol-docker"
     api:
@@ -27,4 +29,4 @@ service:
     metrics:
       receivers: [otlp]
       processors: [batch/datadog, memory_limiter]
-      exporters: [datadog]
+      exporters: [otlphttp, datadog]
