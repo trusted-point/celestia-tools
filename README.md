@@ -18,7 +18,7 @@ Welcome to the Celestia Tools repository! This repository houses a collection of
 | Tool              | Description                                                                                                                                                           |
 |-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **[Monitoring Bot](./monitoring-bot)**    | 🤖 Serves as a vital tool for Celestia network participants, offering comprehensive insights into the network's dynamics, validators, governance proceedings, upcoming upgrades, emergency alerts for DA and validator nodes, and key metrics. |
-| **[Terraform Modules](./terraform-modules)** | 🛠️ Celestia Network's Terraform Modules, your comprehensive solution for effortlessly deploying, monitoring, and managing Celestia infrastructure. Celestia is a modular data availability network designed to securely scale with the increasing number of users, simplifying the process for anyone to launch their own blockchain. |
+| **[Terraform Modules](./terraform-modules)** | 🛠️ Celestia Network's Terraform Modules, your comprehensive solution for effortlessly deploying, monitoring, and managing Celestia infrastructure. |
 
 ## License
 
