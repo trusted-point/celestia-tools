@@ -22,7 +22,7 @@ locals {
       message            = var.low_header_sync_rate_message
       escalation_message = var.low_header_sync_rate_escalation_message
       priority           = 1
-      query              = "pct_change(${var.low_header_sync_rate_aggregator}(${var.low_header_sync_rate_timeframe}),${var.low_header_sync_rate_shift_timeframe}):avg:total_synced_headers${local.filter_tags} < ${var.low_header_sync_rate_threshold_critical}"
+      query              = "pct_change(${var.low_header_sync_rate_aggregator}(${var.low_header_sync_rate_timeframe}),${var.low_header_sync_rate_shift_timeframe}):avg:hdr_sync_subjective_head_gauge${local.filter_tags} < ${var.low_header_sync_rate_threshold_critical}"
       thresholds         = {
         critical = var.low_header_sync_rate_threshold_critical
         critical_recovery = var.low_header_sync_rate_threshold_critical_recovery
