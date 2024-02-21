@@ -153,4 +153,6 @@ The `datadog_monitors` module is utilized to set up monitors specific to Celesti
 
 #### Final Result in Datadog
 
-![Celestia Bridge Dashboard](https://trusted-point.s3.amazonaws.com/datadog/dashboards/bridge_dashboard.png)
+![Celestia Bridge Dashboard 01](https://trusted-point.s3.amazonaws.com/datadog/dashboards/bridge_dashboard_01.png)
+![Celestia Bridge Dashboard 02](https://trusted-point.s3.amazonaws.com/datadog/dashboards/bridge_dashboard_02.png)
+![Celestia Bridge Dashboard 03](https://trusted-point.s3.amazonaws.com/datadog/dashboards/bridge_dashboard_03.png)
