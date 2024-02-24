@@ -22,15 +22,41 @@ ___
 | snapshot-interval | 1500 |
 | snapshot-keep-recent | 2 |
 | minimum-gas-prices | 0.002utia |
-- **RPC:** https://rpc-celestia-mainnet.trusted-point.com
-- **gRPC**: http://grpc-celestia-mainnet.trusted-point.com:9095
-- **API**: https://api-celestia-mainnet.trusted-point.com
-- **gRPC Web**: http://grpc-celestia-mainnet.trusted-point.com:9101
-- **Websocket**: ws://rpc-celestia-mainnet.trusted-point.com:26655/websocket
-- **Peers scanner** (Updates every 5 minutes): https://rpc-celestia-mainnet.trusted-point.com/peers.txt
-- **RPC Nodes on-chain scanner** (Updates every 5 minutes): https://rpc-celestia-mainnet.trusted-point.com/rpc_list.json
-- **Addrbook** (Updates every 5 minutes): https://rpc-celestia-mainnet.trusted-point.com/addrbook.json
 
+### RPC
+```
+https://rpc-celestia-mainnet.trusted-point.com
+```
+### gRPC
+```
+http://grpc-celestia-mainnet.trusted-point.com:9095
+```
+### API
+```
+https://api-celestia-mainnet.trusted-point.com
+```
+### gRPC Web
+```
+http://grpc-celestia-mainnet.trusted-point.com:9101
+```
+### Websocket
+```
+ws://rpc-celestia-mainnet.trusted-point.com:26655/websocket
+```
+### Peers scanner
+updates every 5 minutes
+```
+https://rpc-celestia-mainnet.trusted-point.com/peers.txt
+```
+### RPC Nodes on-chain scanner
+updates every 5 minutes
+```
+https://rpc-celestia-mainnet.trusted-point.com/rpc_list.json
+```
+### Addrbook
+```
+https://rpc-celestia-mainnet.trusted-point.com/addrbook.json
+```
 
 </br>
 <div align="center">
@@ -54,11 +80,37 @@ ___
 | snapshot-keep-recent | 2 |
 | minimum-gas-prices | 0.002utia |
 
-- **RPC:** https://rpc-celestia-mocha.trusted-point.com
-- **gRPC**: http://grpc-celestia-mocha.trusted-point.com:9095
-- **API**: https://api-celestia-mocha.trusted-point.com
-- **gRPC Web**: http://grpc-celestia-mainnet.trusted-point.com:9098
-- **Websocket**: ws://rpc-celestia-mainnet.trusted-point.com:26698/websocket
-- **Peers scanner** (Updates every 5 minutes): https://rpc-celestia-mocha.trusted-point.com/peers.txt
-- **RPC Nodes on-chain scanner** (Updates every 5 minutes): https://rpc-celestia-mocha.trusted-point.com/rpc_list.json
-- **Addrbook** (Updates every 5 minutes): https://rpc-celestia-mocha.trusted-point.com/addrbook.json
+### RPC
+```
+https://rpc-celestia-mocha.trusted-point.com
+```
+### gRPC
+```
+http://grpc-celestia-mocha.trusted-point.com:9095
+```
+### API
+```
+https://api-celestia-mocha.trusted-point.com
+```
+### gRPC Web
+```
+http://grpc-celestia-mainnet.trusted-point.com:9098
+```
+### Websocket
+```
+ws://rpc-celestia-mainnet.trusted-point.com:26698/websocket
+```
+### Peers scanner
+updates every 5 minutes
+```
+https://rpc-celestia-mocha.trusted-point.com/peers.txt
+```
+### RPC Nodes on-chain scanner
+updates every 5 minutes
+```
+https://rpc-celestia-mocha.trusted-point.com/rpc_list.json
+```
+### Addrbook
+```
+https://rpc-celestia-mocha.trusted-point.com/addrbook.json
+```
