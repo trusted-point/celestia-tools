@@ -1,17 +1,18 @@
-# TrustedPoint Services on Celestia
+[<img src='https://github.com/trusted-point/celestia-tools/assets/20209819/3e323674-4905-4c73-8f8e-1d86207874aa' alt='Guides'  width='100%'>](https://celestia.org/)
+___
 
-* **[Celestia](https://celestia.org/)** is a modular consensus and data network, built to enable anyone to easily deploy their own blockchain with minimal overhead.
+</br>
+<div align="center">
+      <a href="#">
+           <img src='https://github.com/trusted-point/celestia-tools/assets/20209819/0b38b5a2-63c6-4aa9-8a92-768a99ac372d' alt='Mainnet'  width='70%'>
+      </a>
+</div>
+</br>
 
-* Celestia provides consensus and security on-demand, enabling anyone to deploy a blockchain without the overhead of bootstrapping a new consensus network.
+<a href="#">
+          <img src='https://github.com/trusted-point/celestia-tools/assets/20209819/af2b2f54-04b7-487c-b607-056f08b0fcb2' alt='Chain'  width='25%'>
+</a>
 
-* Blockchains built on top of Celestia do not rely on honest majority assumptions for state validity, meaning that they can interoperate with the highest security standards.
-
-* Because Celestia does not validate transactions, its throughput is not bottlenecked by state execution like traditional blockchains. Thanks to a property of data availability sampling, Celestia’s throughput scales with the number of users. 
-
-<font size = 4>**[Website](https://celestia.org/) | [GitHub](https://github.com/celestiaorg/docs) | [Twitter](https://twitter.com/CelestiaOrg) | [Discord](https://discord.gg/5FVvx3WGfa) | [Docs](https://docs.celestia.org/) | [Whitepaper](https://celestia.org/resources/#whitepapers) | [Blog](https://blog.celestia.org/) | [Careers](https://celestia.org/careers/)**</font>
-
-## Mainnet
-> chain-id: **celestia**
 #### Node settings:
 | Parameter | Value |
 |---------------------------|-------------------------------------|
@@ -30,8 +31,19 @@
 - **RPC Nodes on-chain scanner** (Updates every 5 minutes): https://rpc-celestia-mainnet.trusted-point.com/rpc_list.json
 - **Addrbook** (Updates every 5 minutes): https://rpc-celestia-mainnet.trusted-point.com/addrbook.json
 
-## Testnet
-> chain-id: **mocha-4**
+
+</br>
+<div align="center">
+      <a href="#">
+           <img src='https://github.com/trusted-point/celestia-tools/assets/20209819/a73baa71-1657-47b5-ba32-b38bdd05f323' alt='Testnet'  width='70%'>
+      </a>
+</div>
+</br>
+
+<a href="#">
+          <img src='https://github.com/trusted-point/celestia-tools/assets/20209819/b59c3774-4cd6-4215-aafd-d2885fc2ed05' alt='Chain'  width='25%'>
+</a>
+
 #### Node settings:
 | Parameter | Value |
 |---------------------------|-------------------------------------|
