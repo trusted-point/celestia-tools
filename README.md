@@ -1,15 +1,18 @@
-# 🛠️ Celestia-Tools
-
-<img src='https://github.com/bartosian/celestia-tools/assets/20209819/2c1d5f91-16e8-49ba-ab66-b871c25928b0' alt='Twitter'  width='100%'>
+[<img src='https://github.com/bartosian/celestia-tools/assets/20209819/0b836a6c-d953-4035-abc3-0d8976a7f6bb' alt='CELESTIA'  width='100%'>](https://celestia.org/)
 
 ___
-
+[<img src='https://github.com/bartosian/celestia-tools/assets/20209819/72566d40-c163-4023-9314-2738d5662d50' alt='Celestia Website'  width='16.2%'>](https://celestia.org/)
+[<img src='https://github.com/bartosian/celestia-tools/assets/20209819/79ccbbbd-e3b4-44dd-ba48-b1fe14922201' alt='Celestia Github'  width='16.2%'>](https://github.com/celestiaorg)
+[<img src='https://github.com/bartosian/celestia-tools/assets/20209819/b3448863-32b8-450b-bac6-aa8d60888ace' alt='Celestia Twitter'  width='16.2%'>](https://twitter.com/CelestiaOrg)
+[<img src='https://github.com/bartosian/celestia-tools/assets/20209819/78c171cf-83b2-4df7-b7ab-abd68a006ce9' alt='Celestia Discord'  width='16.2%'>](https://discord.gg/5FVvx3WGfa)
+[<img src='https://github.com/bartosian/celestia-tools/assets/20209819/c7a50ce5-f08a-47fb-9447-d4df0331f0e7' alt='Celestia LinkedIn'  width='16.2%'>](https://www.linkedin.com/company/celestiaorg/)
+[<img src='https://github.com/bartosian/celestia-tools/assets/20209819/d469b36c-0b11-489e-b40a-3cdb55d1b0c4' alt='Celestia Blog'  width='16.2%'>](https://blog.celestia.org/)
 
 Welcome to the Celestia Tools repository! This repository houses a collection of services and tools meticulously crafted for monitoring the Celestia network and its constituent entities.
 
 ### About **Celestia**
 
-* **[Celestia](https://celestia.org/)** is a modular consensus and data network, built to enable anyone to easily deploy their own blockchain with minimal overhead.
+* Celestia is a modular consensus and data network, built to enable anyone to easily deploy their own blockchain with minimal overhead.
 
 * Celestia provides consensus and security on-demand, enabling anyone to deploy a blockchain without the overhead of bootstrapping a new consensus network.
 
@@ -17,7 +20,6 @@ Welcome to the Celestia Tools repository! This repository houses a collection of
 
 * Because Celestia does not validate transactions, its throughput is not bottlenecked by state execution like traditional blockchains. Thanks to a property of data availability sampling, Celestia’s throughput scales with the number of users. 
 
-<font size = 4>**[Website](https://celestia.org/) | [GitHub](https://github.com/celestiaorg/docs) | [Twitter](https://twitter.com/CelestiaOrg) | [Discord](https://discord.gg/5FVvx3WGfa) | [Docs](https://docs.celestia.org/) | [Whitepaper](https://celestia.org/resources/#whitepapers) | [Blog](https://blog.celestia.org/) | [Careers](https://celestia.org/careers/)**</font>
 ### Available Tools
 
 | Tool              | Description                                                                                                                                                           |
