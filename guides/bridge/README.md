@@ -10,15 +10,15 @@
   - [7. Build `cel-key` binary for birdge's keys managment](#7-build-cel-key-binary-for-birdges-keys-managment)
   - [8. Initialize a bridge node](#8-initialize-a-bridge-node)
   - [9. Make sure to make a backup of the menomic](#9-make-sure-to-make-a-backup-of-the-menomic)
-  - [10. Fund your wallet with a few TIA tokens HERE and check the balance](#10-fund-your-wallet-with-a-few-tia-tokens-here-and-check-the-balance)
   - [11. You can check your wallet address by running the following command](#11-you-can-check-your-wallet-address-by-running-the-following-command)
   - [12. Increase Buffer Sizes](#12-increase-buffer-sizes)
   - [13. Create a systemd service file](#13-create-a-systemd-service-file)
   - [14. Start the service](#14-start-the-service)
-  - [15. You should see such logs](#15-you-should-see-such-logs)
-  - [16. Get your auth token to make RPC requests](#16-get-your-auth-token-to-make-rpc-requests)
-  - [17. Get your Node ID](#17-get-your-node-id)
-  - [18. Setup a monitoring \& alerting  using our **solution** with Datadog dashboard](#18-setup-a-monitoring--alerting--using-our-solution-with-datadog-dashboard)
+  - [15. Logs example](#15-logs-example)
+  - [16. Fund your wallet with a few TIA tokens HERE and check the balance](#16-fund-your-wallet-with-a-few-tia-tokens-here-and-check-the-balance)
+  - [17. Get your auth token to make RPC requests](#17-get-your-auth-token-to-make-rpc-requests)
+  - [18. Get your Node ID](#18-get-your-node-id)
+  - [19. Setup a monitoring \& alerting  using our **solution** with Datadog dashboard](#19-setup-a-monitoring--alerting--using-our-solution-with-datadog-dashboard)
 - [Useful commands](#useful-commands)
   - [Restart](#restart)
   - [Stop](#stop)
@@ -97,24 +97,6 @@ ADDRESS: celestia1rhw4ddktqh83ryw1wq4cnl5jt6ln65n0wv3f432
 MNEMONIC (save this somewhere safe!!!):
 ritual gym delay inspire load ....
 ```
-### 10. Fund your wallet with a few TIA tokens [HERE](https://discord.gg/celestiacommunity) and check the balance
-```bash
-celestia state balance --node.store /home/celestia-mocha-bridge/.celestia-bridge-mocha-4
-
-Example output:
-#{
-#  "result": {
-#    "denom": "utia",
-#    "amount": "10000000"
-#  }
-#}
-
-To make this call you need to make sure Gateway is enabled in /home/celestia-mocha-bridge/.celestia-bridge-mocha-4/config.toml
-# [Gateway]
-#   Address = "localhost"
-#   Port = "26659"
-#   Enabled = true
-```
 ### 11. You can check your wallet address by running the following command
 ```bash
 cel-key list --keyring-backend test --node.type bridge --keyring-dir $HOME/.celestia-bridge-mocha-4/keys
@@ -148,15 +130,32 @@ sudo systemctl enable celestia-bridge && \
 sudo systemctl start celestia-bridge && \
 sudo journalctl -u celestia-bridge.service -f -o cat
 ```
-### 15. You should see such logs
+### 15. Logs example
 [<img src='assets/logs.png' alt='banner' width= '99.9%'>]()
+### 16. Fund your wallet with a few TIA tokens [HERE](https://discord.gg/celestiacommunity) and check the balance
+```bash
+celestia state balance --node.store /home/celestia-mocha-bridge/.celestia-bridge-mocha-4
 
-### 16. Get your auth token to make RPC requests
+Example output:
+#{
+#  "result": {
+#    "denom": "utia",
+#    "amount": "10000000"
+#  }
+#}
+
+To make this call you need to make sure Gateway is enabled in /home/celestia-mocha-bridge/.celestia-bridge-mocha-4/config.toml
+# [Gateway]
+#   Address = "localhost"
+#   Port = "26659"
+#   Enabled = true
+```
+### 17. Get your auth token to make RPC requests
 ```bash
 TOKEN=$(celestia bridge auth admin --p2p.network mocha-4)
 echo $TOKEN
 ```
-### 17. Get your Node ID
+### 18. Get your Node ID
 ```bash
 curl -X POST \
      -s \
@@ -165,7 +164,7 @@ curl -X POST \
      -d '{"jsonrpc":"2.0","id":0,"method":"p2p.Info","params":[]}' \
      http://localhost:26658 | jq .result.ID
 ```
-### 18. Setup a monitoring & alerting  using our [**solution**](https://github.com/trusted-point/celestia-tools/tree/main/terraform-modules/datadog) with Datadog dashboard
+### 19. Setup a monitoring & alerting  using our [**solution**](https://github.com/trusted-point/celestia-tools/tree/main/terraform-modules/datadog) with Datadog dashboard
 [<img src='assets/datadog.png' alt='datadog' width= '99.9%'>]()
 
 ## Useful commands
