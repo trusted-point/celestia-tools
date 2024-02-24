@@ -35,14 +35,14 @@
 </br>
 
 <a href="#">
-          <img src='https://github.com/bartosian/celestia-tools/assets/20209819/1a864602-1475-471a-8c83-ec74aed17d61' alt='Services'  width='20%'>
+          <img src='https://github.com/trusted-point/celestia-tools/assets/20209819/8cccb0e0-f7b9-4055-a79b-4d651f04dc04' alt='Services'  width='25%'>
 </a>
 
 - `!rpc`: Onchain RPC scanning
 - `!peers`: Onchain peers scanning
 
 <a href="#">
-          <img src='https://github.com/bartosian/celestia-tools/assets/20209819/9a3b739d-6df0-486a-a45f-beffd6d36c63' alt='Validators'  width='20%'>
+          <img src='https://github.com/trusted-point/celestia-tools/assets/20209819/7a6677d8-23e5-4bed-9c07-d7f9c3623d51' alt='Validators'  width='25%'>
 </a>
 
 - `!val <valoper>`: Key validator metrics + real-time blocks signing
@@ -55,7 +55,7 @@
 - `!self`: Check all validators that you are subscribing without providing a valoper
 
 <a href="#">
-          <img src='https://github.com/bartosian/celestia-tools/assets/20209819/6017b9ec-f8ec-41b7-b346-0b2b954f3f42' alt='Bridge'  width='20%'>
+          <img src='https://github.com/trusted-point/celestia-tools/assets/20209819/7a8c73fe-26ea-4d18-a691-d3e50f5e627c' alt='Bridge'  width='25%'>
 </a>
 
 - `!sub_bridge`: Subscribe bridge alerts
@@ -64,7 +64,7 @@
 - `!self_bridge`: To quickly check bridges you are subscribing
 
 <a href="#">
-          <img src='https://github.com/bartosian/celestia-tools/assets/20209819/abe73ebc-4b69-4b1e-b266-52601ecfd806' alt='Chain'  width='20%'>
+          <img src='https://github.com/trusted-point/celestia-tools/assets/20209819/0cb7ca15-a11f-4482-b250-1ae87a87cf20' alt='Chain'  width='25%'>
 </a>
 
 - `!chain`: Useful chain metrics
@@ -72,7 +72,7 @@
 - `!upgrade`: Current upgrade plan. The bot automatically announces new upgrades. You can subscribe to receive a reminder 100 blocks before the upgrade height. You can manually check the current upgrade plan and subscribe to reminders.
 
 <a href="#">
-          <img src='https://github.com/bartosian/celestia-tools/assets/20209819/916a9011-b645-4ca8-b345-f078196d4416' alt='Governance'  width='20%'>
+          <img src='https://github.com/trusted-point/celestia-tools/assets/20209819/b158c078-25d7-4855-ba6c-0ef90b1ea1e9' alt='Governance'  width='25%'>
 </a>
 
 - The bot automatically announces new governance proposals. You can view the current voting status & validator votes as well as subscribe to receive a ping once a new proposal is out (All by clicking buttons under the bot's announcement). You can also check details of the given proposal manually.
@@ -82,7 +82,7 @@
 - `!prop_votes <id>`: Active validators votes
 
 <a href="#">
-          <img src='https://github.com/bartosian/celestia-tools/assets/20209819/74d53151-7c9e-4680-ac6e-eac2809a7745' alt='Alerts'  width='20%'>
+          <img src='https://github.com/trusted-point/celestia-tools/assets/20209819/b4068adf-97ab-4cc2-b46a-cf7b87a771b9' alt='Alerts'  width='25%'>
 </a>
 
 - `!subs`: Check your validators alerts subscriptions
@@ -95,7 +95,7 @@
 - `!unsub_gov`: Unsubscribe governance announcements
 
 <a href="#">
-          <img src='https://github.com/bartosian/celestia-tools/assets/20209819/45955f7a-71ea-4bce-bb54-4a948786ab50' alt='Other'  width='20%'>
+          <img src='https://github.com/trusted-point/celestia-tools/assets/20209819/7f013ff2-e5a3-4a8d-bbc9-a6d1c6c5ee75' alt='Other'  width='25%'>
 </a>
 
 - `!feedback`: Leave us feedback / Report a bug
