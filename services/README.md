@@ -13,7 +13,7 @@ ___
           <img src='https://github.com/trusted-point/celestia-tools/assets/20209819/af2b2f54-04b7-487c-b607-056f08b0fcb2' alt='Chain'  width='25%'>
 </a>
 
-#### Node settings:
+### Node settings
 | Parameter | Value |
 |---------------------------|-------------------------------------|
 | Indexing | kv |
@@ -70,7 +70,7 @@ https://rpc-celestia-mainnet.trusted-point.com/addrbook.json
           <img src='https://github.com/trusted-point/celestia-tools/assets/20209819/b59c3774-4cd6-4215-aafd-d2885fc2ed05' alt='Chain'  width='25%'>
 </a>
 
-#### Node settings:
+### Node settings
 | Parameter | Value |
 |---------------------------|-------------------------------------|
 | Indexing | kv |
