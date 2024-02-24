@@ -2,7 +2,7 @@
 
 <div align="center">
      <a href="https://discord.gg/fAaQR8cWrt">
-          <img src='https://github.com/bartosian/celestia-tools/assets/20209819/bfc7aff4-a2b6-46df-b06b-a9b6d6c9d4dc' alt='Join Monitoring'  width='100%'>
+          <img src='https://github.com/trusted-point/celestia-tools/assets/20209819/14e7911e-b6e7-4404-8a37-58866eb1ced3' alt='Join Monitoring'  width='100%'>
      </a>
 </div>
 
@@ -11,7 +11,7 @@
 </br>
 <div align="center">
      <a href="#">
-          <img src='https://github.com/bartosian/celestia-tools/assets/20209819/2d7b5607-26f2-4df0-8644-a8cdb583e4cb' alt='Key Features'  width='70%'>
+          <img src='https://github.com/trusted-point/celestia-tools/assets/20209819/15c56049-2e23-425b-aabf-f22291ec34cf' alt='Key Features'  width='70%'>
      </a>
 </div>
 </br>
@@ -29,7 +29,7 @@
 </br>
 <div align="center">
      <a href="#">
-          <img src='https://github.com/bartosian/celestia-tools/assets/20209819/e7e81b81-9caf-4062-a582-08eb01fb9f0b' alt='Commands'  width='70%'>
+          <img src='https://github.com/trusted-point/celestia-tools/assets/20209819/717ec8c7-624d-41e5-b43b-413ce3e57273' alt='Commands'  width='70%'>
      </a>
 </div>
 </br>
@@ -104,7 +104,7 @@
 </br>
 <div align="center">
      <a href="#">
-          <img src='https://github.com/bartosian/celestia-tools/assets/20209819/228ce360-b5b5-4f86-b1c1-79c7529193df' alt='Alert Tresholds'  width='70%'>
+          <img src='https://github.com/trusted-point/celestia-tools/assets/20209819/b88ce19f-7147-46ee-a71e-edb9e5588f85' alt='Validator Alert Tresholds'  width='70%'>
      </a>
 </div>
 </br>
@@ -122,7 +122,7 @@
 </br>
 <div align="center">
      <a href="#">
-          <img src='https://github.com/bartosian/celestia-tools/assets/20209819/ce81ad59-1317-4fdc-ba1e-39e51766681c' alt='Alert Tresholds'  width='70%'>
+          <img src='https://github.com/trusted-point/celestia-tools/assets/20209819/c2d9b1e9-0908-4379-b376-ec4cadf75922' alt='Bridge Alert Tresholds'  width='70%'>
      </a>
 </div>
 </br>
