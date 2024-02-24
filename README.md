@@ -10,7 +10,13 @@ ___
 
 Welcome to the Celestia Tools repository! This repository houses a collection of services and tools meticulously crafted for monitoring the Celestia network and its constituent entities.
 
-### About **Celestia**
+</br>
+<div align="center">
+      <a href="#">
+           <img src='https://github.com/bartosian/celestia-tools/assets/20209819/961e4ccc-6f9c-43c9-8023-58f597ea90ed' alt='About Celestia'  width='70%'>
+      </a>
+</div>
+</br>
 
 * Celestia is a modular consensus and data network, built to enable anyone to easily deploy their own blockchain with minimal overhead.
 
@@ -20,7 +26,13 @@ Welcome to the Celestia Tools repository! This repository houses a collection of
 
 * Because Celestia does not validate transactions, its throughput is not bottlenecked by state execution like traditional blockchains. Thanks to a property of data availability sampling, Celestia’s throughput scales with the number of users. 
 
-### Available Tools
+</br>
+<div align="center">
+     <a href="#">
+          <img src='https://github.com/bartosian/celestia-tools/assets/20209819/9f6172cc-ab7c-4f67-9873-f2eaf959f9ee' alt='Tools'  width='70%'>
+     </a>
+</div>
+</br>
 
 | Tool              | Description                                                                                                                                                           |
 |-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
