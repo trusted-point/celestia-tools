@@ -1,4 +1,35 @@
 [<img src='assets/validator-guide.png' alt='banner' width= '99.9%'>]()
+## Navigation
+- [Navigation](#navigation)
+- [Hardware requirements](#hardware-requirements)
+  - [1. Create a `celestia-validator` user](#1-create-a-celestia-validator-user)
+  - [2. Update and install packages](#2-update-and-install-packages)
+  - [3. Install Go](#3-install-go)
+  - [4. Clone `celestia-app` repository](#4-clone-celestia-app-repository)
+  - [5. Build and install the `celestia-app`  binary](#5-build-and-install-the-celestia-app--binary)
+  - [6. Setup variables](#6-setup-variables)
+  - [7. Initialize the node](#7-initialize-the-node)
+  - [8. Set peers and seeds](#8-set-peers-and-seeds)
+  - [8. Set ports](#8-set-ports)
+  - [9. Set min gas price](#9-set-min-gas-price)
+  - [10. Enable indexer if needed](#10-enable-indexer-if-needed)
+  - [11. Configure prunning to save storage](#11-configure-prunning-to-save-storage)
+  - [12. Download genesis.json](#12-download-genesisjson)
+  - [13. Download addrbook.json](#13-download-addrbookjson)
+  - [14. Enable state sync (Or restore from snapshot)](#14-enable-state-sync-or-restore-from-snapshot)
+  - [15. Create a systemd service file](#15-create-a-systemd-service-file)
+  - [16. Start the node](#16-start-the-node)
+  - [17. Logs](#17-logs)
+  - [18. Monitor sync status](#18-monitor-sync-status)
+- [Useful commands](#useful-commands)
+  - [Restart](#restart)
+  - [Stop](#stop)
+  - [Check logs](#check-logs)
+  - [Upgrade celstia-appd](#upgrade-celstia-appd)
+  - [Check sync status](#check-sync-status)
+  - [Interacting with gRPC](#interacting-with-grpc)
+  - [Interacting with REST API](#interacting-with-rest-api)
+  - [Delete the node](#delete-the-node)
 ## Hardware requirements
 ```py
 - Memory: 8 GB RAM
@@ -36,7 +67,7 @@ go version
 cd $HOME
 git clone https://github.com/celestiaorg/celestia-app.git
 cd celestia-app
-git checkout tags/v1.6.0
+git checkout tags/v1.6.0 -b v1.6.0
 ```
 ### 5. Build and install the `celestia-app`  binary
 ```bash
