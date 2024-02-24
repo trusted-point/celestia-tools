@@ -1,4 +1,9 @@
-# Celestia-Tools
+# 🛠️ Celestia-Tools
+
+<img src='https://github.com/bartosian/celestia-tools/assets/20209819/2c1d5f91-16e8-49ba-ab66-b871c25928b0' alt='Twitter'  width='100%'>
+
+___
+
 
 Welcome to the Celestia Tools repository! This repository houses a collection of services and tools meticulously crafted for monitoring the Celestia network and its constituent entities.
 
