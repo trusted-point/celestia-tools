@@ -1,4 +1,4 @@
-[<img src='https://github.com/bartosian/celestia-tools/assets/20209819/dece7684-7a40-4c40-bea0-9115f83b272a' alt='Guides'  width='100%'>](https://celestia.org/)
+[<img src='https://github.com/bartosian/celestia-tools/assets/20209819/dece7684-7a40-4c40-bea0-9115f83b272a' alt='Guides'  width='100%'>](./README.md)
 ___
 
 </br>
