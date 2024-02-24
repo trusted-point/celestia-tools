@@ -1,6 +1,11 @@
 [<img src='assets/For-post.png' alt='banner' width= '99.9%'>]()
 
-▶️ **[JOIN DISCORD](https://discord.gg/fAaQR8cWrt) ◀️ AND START MONITORING CELESTIA NETWORK**
+<div align="center">
+     <a href="https://discord.gg/fAaQR8cWrt">
+          <img src='https://github.com/bartosian/celestia-tools/assets/20209819/bfc7aff4-a2b6-46df-b06b-a9b6d6c9d4dc' alt='Join Monitoring'  width='100%'>
+     </a>
+</div>
+
 ---
 
 </br>
