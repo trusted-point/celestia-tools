@@ -1,4 +1,4 @@
-[<img src='https://github.com/trusted-point/celestia-tools/assets/20209819/6ce23be5-5845-44dd-874e-f8c5fc8c122c' alt='Guides'  width='100%'>](https://celestia.org/)
+[<img src='https://github.com/trusted-point/celestia-tools/assets/20209819/09aa0912-b395-422c-b3d3-4ee1f526ba39' alt='Terraform'  width='100%'>](./)
 ___
 
 Welcome to Celestia Network's Terraform Modules, your comprehensive solution for effortlessly deploying, monitoring, and managing Celestia infrastructure. Celestia is a modular data availability network designed to securely scale with the increasing number of users, simplifying the process for anyone to launch their own blockchain.
