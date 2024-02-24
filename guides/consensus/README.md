@@ -129,9 +129,9 @@ sed -i.bak -e "s/^indexer *=.*/indexer = \"kv\"/" $HOME/.celestia-app/config/con
 ```
 ### 11. Configure prunning to save storage 
 ```bash
-sed -i.bak -e "s/^pruning *=.*/pruning = \"custom\"/" $HOME/.side/config/app.toml
-sed -i.bak -e "s/^pruning-keep-recent *=.*/pruning-keep-recent = \"1000\"/" $HOME/.side/config/app.toml
-sed -i.bak -e "s/^pruning-interval *=.*/pruning-interval = \"10\"/" $HOME/.side/config/app.toml
+sed -i.bak -e "s/^pruning *=.*/pruning = \"custom\"/" $HOME/.celestia-app/config/app.toml
+sed -i.bak -e "s/^pruning-keep-recent *=.*/pruning-keep-recent = \"1000\"/" $HOME/.celestia-app/config/app.toml
+sed -i.bak -e "s/^pruning-interval *=.*/pruning-interval = \"10\"/" $HOME/.celestia-app/config/app.toml
 ```
 ### 12. Download genesis.json
 ```bash
@@ -157,7 +157,7 @@ sed -i.bak \
     -e "/^rpc_servers =/ s|=.*|= \"$SNAP_RPC,$SNAP_RPC\"|;" \
     -e "/^trust_height =/ s/=.*/= $BLOCK_HEIGHT/;" \
     -e "/^trust_hash =/ s/=.*/= \"$TRUST_HASH\"/" \
-    $HOME/.side/config/app.toml
+    $HOME/.celestia-app/config/app.toml
 ```
 ### 15. Create a systemd service file
 ```bash
