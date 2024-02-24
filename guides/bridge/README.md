@@ -1,5 +1,5 @@
 [<img src='assets/bridge-node.png' alt='banner' width= '99.9%'>]()
-
+## Navigation
 - [Hardware requirements](#hardware-requirements)
   - [1. Create a `celestia-bridge` user](#1-create-a-celestia-bridge-user)
   - [2. Update and install packages](#2-update-and-install-packages)
