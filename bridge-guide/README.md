@@ -18,6 +18,7 @@
   - [15. You should see such logs](#15-you-should-see-such-logs)
   - [16. Get your auth token to make RPC requests](#16-get-your-auth-token-to-make-rpc-requests)
   - [17. Get your Node ID](#17-get-your-node-id)
+  - [18. Setup a monitoring \& alerting  using our **solution** with Datadog dashboard](#18-setup-a-monitoring--alerting--using-our-solution-with-datadog-dashboard)
 - [Useful commands](#useful-commands)
   - [Restart](#restart)
   - [Stop](#stop)
@@ -27,7 +28,7 @@
   - [Get Bridge's local height](#get-bridges-local-height)
   - [Get Bridge's network height](#get-bridges-network-height)
   - [Check balance](#check-balance)
-  - [Delete then node](#delete-then-node)
+  - [Delete the node](#delete-the-node)
 ## Hardware requirements
 ```py
 - Memory: 4 GB RAM (minimum)
@@ -164,6 +165,7 @@ curl -X POST \
      -d '{"jsonrpc":"2.0","id":0,"method":"p2p.Info","params":[]}' \
      http://localhost:26658 | jq .result.ID
 ```
+### 18. Setup a monitoring & alerting  using our [**solution**](https://github.com/trusted-point/celestia-tools/tree/main/terraform-modules/datadog) with Datadog dashboard
 ## Useful commands
 
 ### Restart
@@ -239,7 +241,7 @@ To make this call you need to make sure Gateway is enabled in /home/celestia-moc
 #   Port = "26659"
 #   Enabled = true
 ```
-### Delete then node
+### Delete the node
 ```bash
 # DO NOT FORGET TO BACKUP YOUR KEYS at /home/celestia-bridge/.celestia-bridge-mocha-4/keys/
 sudo su - celestia-bridge
