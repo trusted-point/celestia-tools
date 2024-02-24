@@ -43,7 +43,7 @@ Welcome to the Celestia Tools repository! This repository houses a collection of
 | [<img src='https://github.com/bartosian/celestia-tools/assets/20209819/ed38dbc7-b447-4674-9365-0bbc3ebb528a' alt='Terraform'  width='100%'>](./terraform-modules) | 🛠️ Celestia Network's Terraform Modules, your comprehensive solution for effortlessly deploying, monitoring, and managing Celestia infrastructure. |
 | [<img src='https://github.com/bartosian/celestia-tools/assets/20209819/b450bc60-6206-4d69-966c-8f242e702daa' alt='Services'  width='100%'>](./services) | 🔐 Various endpoints including RPC, gRPC, API, gRPC-Web, Websocket, addrbook.json and on-chain Peers & Rpc scanners for both Mainnet & Testnet. (Archive nodes) |
 | [<img src='https://github.com/bartosian/celestia-tools/assets/20209819/39877359-4006-44e9-8071-44dd38438036' alt='Dashboard'  width='100%'>](http://dashboard-celestia.trusted-point.com/) | 📊 Celestia public dashboard which provides real-time observability and insights into network performance, state, and validator sets. |
-
+| [<img src='https://github.com/bartosian/celestia-tools/assets/20209819/9d0d3d41-c190-43ef-a0b7-71cc4d965aa0' alt='GUIDES'  width='100%'>](./guides) | 📚 Comprehensive installation and configuration guides for Celestia nodes and tools. |
 
 ## License
 
