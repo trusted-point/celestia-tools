@@ -24,9 +24,10 @@ Welcome to the Celestia Tools repository! This repository houses a collection of
 
 | Tool              | Description                                                                                                                                                           |
 |-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **[Monitoring Bot](./monitoring-bot)**    | 🤖 Serves as a vital tool for Celestia network participants, offering comprehensive insights into the network's dynamics, validators, governance proceedings, upcoming upgrades, emergency alerts for DA and validator nodes, and key metrics. |
-| **[Terraform Modules](./terraform-modules)** | 🛠️ Celestia Network's Terraform Modules, your comprehensive solution for effortlessly deploying, monitoring, and managing Celestia infrastructure. |
-| **[Services](./services)** | 🔐 Various endpoints including RPC, gRPC, API, gRPC-Web, Websocket, addrbook.json and on-chain Peers & Rpc scanners for both Mainnet & Testnet. (Archive nodes) |
+| [<img src='https://github.com/bartosian/celestia-tools/assets/20209819/c37ccee1-79a6-4742-974c-ac612050fca3' alt='Bot'  width='100%'>](./monitoring-bot) | 🤖 Serves as a vital tool for Celestia network participants, offering comprehensive insights into the network's dynamics, validators, governance proceedings, upcoming upgrades, emergency alerts for DA and validator nodes, and key metrics. |
+| [<img src='https://github.com/bartosian/celestia-tools/assets/20209819/14b14fc5-8d9a-428d-bfd6-f6f4e817c2bc' alt='Terraform'  width='100%'>](./terraform-modules) | 🛠️ Celestia Network's Terraform Modules, your comprehensive solution for effortlessly deploying, monitoring, and managing Celestia infrastructure. |
+| [<img src='https://github.com/bartosian/celestia-tools/assets/20209819/16490197-1d10-48a0-996c-a7d65aaa3e04' alt='Services'  width='100%'>](./services) | 🔐 Various endpoints including RPC, gRPC, API, gRPC-Web, Websocket, addrbook.json and on-chain Peers & Rpc scanners for both Mainnet & Testnet. (Archive nodes) |
+| [<img src='https://github.com/bartosian/celestia-tools/assets/20209819/d61df01b-16e1-413e-8912-b41032b8a15f' alt='Dashboard'  width='100%'>](http://dashboard-celestia.trusted-point.com/) | 📊 Celestia public dashboard which provides real-time observability and insights into network performance, state, and validator sets. |
 
 ## License
 
