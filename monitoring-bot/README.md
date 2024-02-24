@@ -2,7 +2,15 @@
 
 ▶️ **[JOIN DISCORD](https://discord.gg/fAaQR8cWrt) ◀️ AND START MONITORING CELESTIA NETWORK**
 ---
-## Key Features
+
+</br>
+<div align="center">
+     <a href="#">
+          <img src='https://github.com/bartosian/celestia-tools/assets/20209819/2d7b5607-26f2-4df0-8644-a8cdb583e4cb' alt='Key Features'  width='70%'>
+     </a>
+</div>
+</br>
+
 - Our bot serves as a vital tool for Celestia network participants, offering comprehensive insights into the network's dynamics, validators, governance proceedings, upcoming upgrades, emergency alerts, and key metrics.
 
 - Alert Services: For validators and stakeholders, the bot provides subscription services for timely alerts. Users receive notifications about critical events such as block skipping, validator exclusion from an active set, commission adjustments, and more.
@@ -13,7 +21,14 @@
 
 - Our bot can also perform an on-chain RPC and persistent peers scanning.
 
-## Available commands
+</br>
+<div align="center">
+     <a href="#">
+          <img src='https://github.com/bartosian/celestia-tools/assets/20209819/e7e81b81-9caf-4062-a582-08eb01fb9f0b' alt='Key Features'  width='70%'>
+     </a>
+</div>
+</br>
+
 ### ✔️ Services
 - `!rpc`: Onchain RPC scanning
 - `!peers`: Onchain peers scanning
