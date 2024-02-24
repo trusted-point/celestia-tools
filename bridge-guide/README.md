@@ -18,7 +18,7 @@
   - [15. You should see such logs](#15-you-should-see-such-logs)
   - [16. Get your auth token to make RPC requests](#16-get-your-auth-token-to-make-rpc-requests)
   - [17. Get your Node ID](#17-get-your-node-id)
-  - [18. Setup a monitoring \& alerting  using our **solution** with Datadog dashboard](#18-setup-a-monitoring--alerting--using-our-solution-with-datadog-dashboard)
+  - [18. Setup a monitoring & alerting  using our **solution** with Datadog dashboard](#18-setup-a-monitoring--alerting--using-our-solution-with-datadog-dashboard)
 - [Useful commands](#useful-commands)
   - [Restart](#restart)
   - [Stop](#stop)
@@ -165,7 +165,8 @@ curl -X POST \
      -d '{"jsonrpc":"2.0","id":0,"method":"p2p.Info","params":[]}' \
      http://localhost:26658 | jq .result.ID
 ```
-### 18. Setup a monitoring & alerting  using our [**solution**](https://github.com/trusted-point/celestia-tools/tree/main/terraform-modules/datadog) with Datadog dashboard
+### 18. (optinal) Setup a monitoring & alerting  using our [**solution**](https://github.com/trusted-point/celestia-tools/tree/main/terraform-modules/datadog) with Datadog dashboard
+[<img src='assets/datadog.png' alt='datadog' width= '99.9%'>]()
 ## Useful commands
 
 ### Restart
