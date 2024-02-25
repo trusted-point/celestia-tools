@@ -5,7 +5,7 @@ ___
   <a href="https://celestia.org/"><img src="https://github.com/bartosian/celestia-tools/assets/20209819/85aaef48-7ea4-4857-b339-985645c6850c" alt="Celestia Website" width="16%"></a>
   <a href="https://github.com/celestiaorg"><img src="https://github.com/bartosian/celestia-tools/assets/20209819/229ec400-72ff-48ee-ac18-7bdb1f5e221a" alt="Celestia Github" width="16%"></a>
   <a href="https://twitter.com/CelestiaOrg"><img src="https://github.com/bartosian/celestia-tools/assets/20209819/3978b7fc-d575-44a6-8d41-327c14c8ba31" alt="Celestia Twitter" width="16%"></a>
-  <a href="https://discord.gg/5FVvx3WGfa"><img src="https://github.com/bartosian/celestia-tools/assets/20209819/944a0b87-548d-4109-ad0c-def572d307cb" alt="Celestia Discord" width="16%"></a>
+  <a href="https://discord.gg/3AmfZjrH"><img src="https://github.com/bartosian/celestia-tools/assets/20209819/944a0b87-548d-4109-ad0c-def572d307cb" alt="Celestia Discord" width="16%"></a>
   <a href="https://www.linkedin.com/company/celestiaorg/"><img src="https://github.com/bartosian/celestia-tools/assets/20209819/aacae429-c0cd-46dc-8032-e83fef8a6b05" alt="Celestia LinkedIn" width="16%"></a>
   <a href="https://blog.celestia.org/"><img src="https://github.com/bartosian/celestia-tools/assets/20209819/ac52729b-64d7-44d1-9a66-1e0d159848f6" alt="Celestia Blog" width="16.2%"></a>
 </div>
